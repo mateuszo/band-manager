@@ -4,21 +4,8 @@
 
 {% block body %}
 <div class="container">
-    <h2>Próby</h2>
-    <table class="table table-hover">
-        <th>#</th>
-        <th>Nazwa</th>
-        <th>Opis</th>
-        <th>Data</th>
-    {% for event in events %}
-        <tr>
-            <td>{{ forloop.counter }}</td>
-            <td><a href="{% url 'tracks:event_details' event.id %}">{{ event.name }}</a></td>
-            <td>{{ event.description }}</td>
-            <td>{{ event.date }}</td>
-        </tr>
-    {% endfor %}
-    </table>
+    <h1>Próby</h1>
+    {% include "tracks/tables/event-table.html" with events=events %}
 </div>
 
 

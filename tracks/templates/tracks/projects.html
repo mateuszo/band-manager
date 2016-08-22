@@ -4,18 +4,8 @@
 
 {% block body %}
 <div class="container">
-    <table class="table table-hover">
-        <th>#</th>
-        <th>Nazwa</th>
-        <th>Opis</th>
-    {% for project in projects %}
-        <tr class="table-row" data-href="{% url 'tracks:project_details' project.id %}">
-            <td>{{ forloop.counter }}</td>
-            <td><a href="{% url 'tracks:project_details' project.id %}">{{ project.name }}</a></td>
-            <td>{{ project.description }}</td>
-        </tr>
-    {% endfor %}
-    </table>
+    <h1>Utwory</h1>
+    {% include "tracks/tables/project-table.html" with projects=projects %}
 </div>
 
 

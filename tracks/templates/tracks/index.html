@@ -6,26 +6,13 @@
 <!--<img src="{% static 'tracks/img/equalizer.gif' %}">-->
 <div class="container">
     <h1>Ostatnio dodane</h1>
+
     <h2>Nagrania</h2>
-    <audio controls="controls" id="player" preload="auto" autoplay="">
-              Your browser does not support the audio element.
-    </audio>
-    <table class="table table-hover" id="playlist">
-        <th>#</th>
-        <th>Nagranie</th>
-        <th>Utwór</th>
-        <th>Próba</th>
-        <th>Długość</th>
-    {% for track in tracks %}
-        <tr data-audiourl="{% static 'audio/' %}{{ track.path }}">
-            <td>{{ forloop.counter }}</td>
-            <td>{{ track.name }}</td>
-            <td>{{ track.project }}</td>
-            <td>{{ track.event }}</td>
-            <td>0:00</td>
-        </tr>
-    {% endfor %}
-    </table>
+    {% include "tracks/tables/track-table.html" with tracks=tracks %}
+    <h2>Utwory</h2>
+    {% include "tracks/tables/project-table.html" with projects=projects %}
+    <h2>Próby</h2>
+    {% include "tracks/tables/event-table.html" with events=events %}
 </div>
 
 

@@ -7,9 +7,11 @@ import datetime
 def index(request):
     week_ago = datetime.date.today() - datetime.timedelta(days=7)
     tracks = Track.objects.filter(date__gte=week_ago)
-
-
-    return render(request, 'tracks/index.html', {'tracks': tracks})
+    projects = Project.objects.filter(date__gte=week_ago)
+    events = Event.objects.filter(date__gte=week_ago)
+    return render(request, 'tracks/index.html', {'tracks': tracks,
+                                                 'projects': projects,
+                                                 'events': events})
 
 
 def events(request):
@@ -19,8 +21,7 @@ def events(request):
 
 def event_details(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
-    tracks = event.track_set.all()
-    return render(request, 'tracks/event_details.html', {'event': event, 'tracks': tracks})
+    return render(request, 'tracks/event_details.html', {'event': event})
 
 
 def projects(request):
@@ -30,5 +31,4 @@ def projects(request):
 
 def project_details(request, project_id):
     project = get_object_or_404(Project, pk=project_id)
-    tracks = project.track_set.all()
-    return render(request, 'tracks/project_details.html', {'project': project, 'tracks': tracks})
+    return render(request, 'tracks/project_details.html', {'project': project})
