@@ -1,10 +1,11 @@
 from django.db import models
 from datetime import date
+from django.utils.timezone import now
 
 class Event(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True)
-    date = models.DateField(default=date.today())
+    date = models.DateField(default=now())
 
     def __str__(self):
         return self.name
@@ -12,7 +13,7 @@ class Event(models.Model):
 
 class Project(models.Model):
     name = models.CharField(max_length=200)
-    date = models.DateField(default=date.today())
+    date = models.DateField(default=now())
     description = models.TextField(blank=True)
     # TODO: add state field definig the project's state (done/in progress)
 
@@ -22,7 +23,7 @@ class Project(models.Model):
 
 class Track(models.Model):
     name = models.CharField(max_length=200)
-    date = models.DateField(default=date.today())
+    date = models.DateField(now())
     path = models.CharField(max_length=500)
     event = models.ForeignKey(Event)
     project = models.ForeignKey(Project, blank=True, null=True)

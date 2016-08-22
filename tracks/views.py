@@ -15,7 +15,7 @@ def index(request):
 
 
 def events(request):
-    events = Event.objects.all()
+    events = Event.objects.all().order_by('-date')
     return render(request, 'tracks/events.html', {'events': events})
 
 
