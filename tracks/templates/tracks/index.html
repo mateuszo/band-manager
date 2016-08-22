@@ -1,0 +1,32 @@
+{% extends 'tracks/base.html' %}
+{% block title %}Index{% endblock %}
+
+{% block body %}
+{% load staticfiles %}
+<!--<img src="{% static 'tracks/img/equalizer.gif' %}">-->
+<div class="container">
+    <h1>Ostatnio dodane</h1>
+    <h2>Nagrania</h2>
+    <audio controls="controls" id="player" preload="auto" autoplay="">
+              Your browser does not support the audio element.
+    </audio>
+    <table class="table table-hover" id="playlist">
+        <th>#</th>
+        <th>Nagranie</th>
+        <th>Utwór</th>
+        <th>Próba</th>
+        <th>Długość</th>
+    {% for track in tracks %}
+        <tr data-audiourl="{% static 'audio/' %}{{ track.path }}">
+            <td>{{ forloop.counter }}</td>
+            <td>{{ track.name }}</td>
+            <td>{{ track.project }}</td>
+            <td>{{ track.event }}</td>
+            <td>0:00</td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+
+
+{% endblock %}

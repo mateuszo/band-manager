@@ -1,0 +1,36 @@
+{% extends 'tracks/base.html' %}
+{% block events_active %}active{% endblock %}
+{% block title %}Event details{% endblock %}
+
+{% block body %}
+{% load staticfiles %}
+<div class="container">
+    <h2>{{ event.name }}</h2>
+    <h3>{{ event.date }}</h3>
+    <audio controls="controls" id="player" preload="auto" autoplay="autoplay">
+              Your browser does not support the audio element.
+    </audio>
+    <table class="table table-hover" id="playlist">
+        <th>#</th>
+        <th>Nagranie</th>
+        <th>Utwór</th>
+        <th>Próba</th>
+        <th>Długość</th>
+    {% for track in tracks %}
+        <tr data-audiourl="{% static 'audio/' %}{{ track.path }}">
+            <td>{{ forloop.counter }}</td>
+            <td>{{ track.name }}</td>
+            {% if track.project.id %}
+                <td><a href="{% url 'tracks:project_details' track.project.id %}">{{ track.project }}</a></td>
+            {% else %}
+                <td>{{ track.project }}</td>
+            {% endif %}
+            <td>{{ track.event }}</td>
+            <td>0:00</td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+
+
+{% endblock %}
