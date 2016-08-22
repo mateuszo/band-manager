@@ -5,7 +5,7 @@
     <th>Opis</th>
     <th>Data</th>
 {% for event in events %}
-    <tr>
+    <tr class="table-row" data-href="{% url 'tracks:event_details' event.id %}">
         <td>{{ forloop.counter }}</td>
         <td><a href="{% url 'tracks:event_details' event.id %}">{{ event.name }}</a></td>
         <td>{{ event.description }}</td>

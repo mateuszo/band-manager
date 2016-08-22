@@ -1,0 +1,19 @@
+{% extends 'tracks/base.html' %}
+{% block title %}Index{% endblock %}
+
+{% block body %}
+{% load staticfiles %}
+<!--<img src="{% static 'tracks/img/equalizer.gif' %}">-->
+<div class="container">
+    <h1>Wyniki wyszukiwania</h1>
+
+    <h2>Nagrania</h2>
+    {% include "tracks/tables/track-table.html" with tracks=tracks %}
+    <h2>Utwory</h2>
+    {% include "tracks/tables/project-table.html" with projects=projects %}
+    <h2>Próby</h2>
+    {% include "tracks/tables/event-table.html" with events=events %}
+</div>
+
+
+{% endblock %}

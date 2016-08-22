@@ -32,3 +32,13 @@ def projects(request):
 def project_details(request, project_id):
     project = get_object_or_404(Project, pk=project_id)
     return render(request, 'tracks/project_details.html', {'project': project})
+
+def search(request):
+    query = request.GET.get("q")
+    if query:
+        tracks = Track.objects.filter(name__contains=query)
+        projects = Project.objects.filter(name__contains=query)
+        events = Event.objects.filter(name__contains=query)
+    return render(request, 'tracks/search.html', {'tracks': tracks,
+                                                 'projects': projects,
+                                                 'events': events})
