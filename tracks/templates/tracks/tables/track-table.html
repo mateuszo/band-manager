@@ -12,7 +12,7 @@
         {% if track.project.id %}
             <td class="project-name"><a href="{% url 'tracks:project_details' track.project.id %}">{{ track.project }}</a></td>
         {% else %}
-            <td>{{ track.project }}</td>
+            <td class="project-name"><a href="{% url 'tracks:project_undefined' %}">{{ track.project }}</a></td>
         {% endif %}
         <td class="event-name"><a href="{% url 'tracks:event_details' track.event.id %}">{{ track.event }}</a></td>
         <td>{{ track.date }}</td>

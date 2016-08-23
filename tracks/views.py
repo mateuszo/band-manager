@@ -31,7 +31,15 @@ def projects(request):
 
 def project_details(request, project_id):
     project = get_object_or_404(Project, pk=project_id)
-    return render(request, 'tracks/project_details.html', {'project': project})
+    tracks = project.track_set.all()
+    return render(request, 'tracks/project_details.html', {'project': project, 'tracks': tracks})
+
+def project_undefined(request):
+    project = Project()
+    project.name = "Niezidentyfikowany"
+    project.description = "Nagrania nieprzypisane do żadnego projektu"
+    tracks = Track.objects.filter(project=None)
+    return render(request, 'tracks/project_details.html', {'project': project, 'tracks': tracks})
 
 def search(request):
     query = request.GET.get("q")

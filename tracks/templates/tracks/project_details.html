@@ -7,7 +7,7 @@
 <div class="container">
     <h2>{{ project.name }}</h2>
     <h3>{{ project.description }}</h3>
-    {% include "tracks/tables/track-table.html" with tracks=project.track_set.all %}
+    {% include "tracks/tables/track-table.html" with tracks=tracks %}
 </div>
 
 
