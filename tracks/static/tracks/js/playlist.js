@@ -1,23 +1,31 @@
+function playTrack(track) {
+    // play track
+    $("#player").attr({
+        "src": track.attr("data-audiourl"),
+    });
+    // change row styking
+    $("#playlist tr.active").removeClass('active');
+    $("#playlist tr.current").removeClass('current');
+    track.addClass('active current');
+
+    // change player description
+    var trackName = track.find(".track-name").html();
+    var projectName = track.find(".project-name").html();
+    var eventName = track.find(".event-name").html();
+    $("#playing-track").html(trackName);
+    $("#playing-project").html(projectName);
+    $("#playing-event").html(eventName);
+}
+
 $(document).ready(function() {
     if($("#player")[0]){
         $("#playlist tr").on("click", function() {
             //switch track
-            $("#player").attr({
-                "src": $(this).attr("data-audiourl"),
-                "autoplay": "autoplay",
-                "preload": "auto"
-            });
-            //change active row
-            $("#playlist tr.active").removeClass('active');
-            $("#playlist tr.current").removeClass('current');
-            $(this).addClass('active current');
+            playTrack($(this));
         });
 
         //start player with first track
-        $("#player").attr({
-            "src": $("#playlist tr").eq(1).attr("data-audiourl"),
-        });
-        $("#playlist tr").eq(1).addClass('active current');
+        playTrack($("#playlist tr").eq(1))
 
         $("#player")[0].onpause = function() {
             $("#playlist tr.active").removeClass('active');
@@ -30,12 +38,7 @@ $(document).ready(function() {
             $("#player").attr({
                 "src": '',
             });
-            var next = $("#playlist tr.current").next()
-            $("#player").attr({
-                "src": next.attr("data-audiourl"),
-            });
-            $('tr.current').removeClass('active current')
-            next.addClass('active current');
+            playTrack($("#playlist tr.current").next())
         }
 
 
