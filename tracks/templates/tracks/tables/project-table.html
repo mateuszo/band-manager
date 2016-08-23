@@ -3,11 +3,13 @@
     <th>#</th>
     <th>Nazwa</th>
     <th>Opis</th>
+    <th>Data</th>
 {% for project in projects %}
     <tr class="table-row" data-href="{% url 'tracks:project_details' project.id %}">
         <td>{{ forloop.counter }}</td>
         <td><a href="{% url 'tracks:project_details' project.id %}">{{ project.name }}</a></td>
         <td>{{ project.description }}</td>
+        <td>{{ project.date }}</td>
     </tr>
 {% endfor %}
 </table>

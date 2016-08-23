@@ -1,10 +1,12 @@
 @import 'https://fonts.googleapis.com/css?family=Megrim';
 
-/*
 body {
-    background-image: url('../img/wall4.png');
+    background-image: url('../img/tileable-classic-nebula-space-patterns-6.jpg');
 }
-*/
+
+.container {
+	background-color: rgba(255,255, 255, 0.8);
+}
 
 .navbar {
     border-radius: 0px;
