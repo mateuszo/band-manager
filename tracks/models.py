@@ -19,6 +19,7 @@ class Project(models.Model):
         ('DONE', 'done'),
         ('OLD', 'old')
     )
+
     PROJECT_STATUSES_CSS = {
         "DRAFT" : 'label-warning',
         "IN PROGRESS" : 'label-info',
