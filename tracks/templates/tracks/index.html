@@ -7,12 +7,10 @@
 <div class="container">
     <h1>Ostatnio dodane</h1>
 
-    <h2>Nagrania</h2>
-    {% include "tracks/tables/track-table.html" with tracks=tracks %}
-    <h2>Utwory</h2>
-    {% include "tracks/tables/project-table.html" with projects=projects %}
     <h2>Próby</h2>
     {% include "tracks/tables/event-table.html" with events=events %}
+    <h2>Utwory</h2>
+    {% include "tracks/tables/project-table.html" with projects=projects %}
 </div>
 
 

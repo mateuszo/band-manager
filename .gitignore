@@ -91,4 +91,5 @@ ENV/
 .ropeproject
 
 # Audio files
-tracks/static/audio/
+/tracks/static/audio/
+/static
