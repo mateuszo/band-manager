@@ -9,6 +9,12 @@ body {
 	margin-bottom: 80px;
 }
 
+.transparent-container{
+    background-color: transparent;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
 .navbar {
     border-radius: 0px;
 }
@@ -16,6 +22,16 @@ body {
 .navbar-brand {
     font-family: 'Megrim', cursive;
 }
+
+.band-heading {
+    font-family: 'Megrim', cursive;
+    text-align: center;
+    color: white;
+    font-size: 55px;
+    letter-spacing: 25px;
+    margin-bottom: 40px;
+}
+
 
 audio {
     width: 100%

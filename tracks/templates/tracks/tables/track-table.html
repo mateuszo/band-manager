@@ -5,7 +5,6 @@
         <th>Nagranie</th>
         <th>Utwór</th>
         <th>Próba</th>
-        <th>Data</th>
     {% for track in tracks %}
         <tr data-audiourl="{% static 'audio/' %}{{ track.path }}">
             <td>{{ forloop.counter }}</td>
@@ -16,7 +15,6 @@
                 <td class="project-name"><a href="{% url 'tracks:project_undefined' %}">{{ track.project }}</a></td>
             {% endif %}
             <td class="event-name"><a href="{% url 'tracks:event_details' track.event.id %}">{{ track.event }}</a></td>
-            <td>{{ track.date }}</td>
         </tr>
     {% endfor %}
     </table>
