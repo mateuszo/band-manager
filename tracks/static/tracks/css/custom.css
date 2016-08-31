@@ -22,7 +22,7 @@ audio {
 }
 
 tr.active td {
-    background-image: url("/static/tracks/img/equalizer.gif");
+    background-image: url("../img/equalizer.gif");
 }
 
 tr.current {
