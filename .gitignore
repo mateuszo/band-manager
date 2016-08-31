@@ -96,3 +96,6 @@ ENV/
 
 # sqlite
 db.sqlite3
+
+# OS X dstore
+.DS_Store
