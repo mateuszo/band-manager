@@ -93,3 +93,6 @@ ENV/
 # Audio files
 /tracks/static/audio/
 /static
+
+# sqlite
+db.sqlite3
