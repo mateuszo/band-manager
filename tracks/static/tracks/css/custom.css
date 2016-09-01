@@ -1,7 +1,8 @@
-@import 'https://fonts.googleapis.com/css?family=Megrim';
+@import 'https://fonts.googleapis.com/css?family=Megrim|Raleway';
 
 body {
     background-image: url('../img/tileable-classic-nebula-space-patterns-6.jpg');
+    font-family: 'Raleway', sans-serif;
 }
 
 .container {
@@ -55,11 +56,12 @@ tr {
 }
 
 footer > .container {
-    padding: 10px 0px;
+    padding: 10px 10px;
     background-color: #fafafa;
     margin-bottom: 0px;
 }
 
 .span-space {
     margin-right: 25px;
+    display: inline-block;
 }
