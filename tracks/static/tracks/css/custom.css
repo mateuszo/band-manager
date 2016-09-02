@@ -1,7 +1,7 @@
 @import 'https://fonts.googleapis.com/css?family=Megrim|Raleway';
 
 body {
-    background-image: url('../img/tileable-classic-nebula-space-patterns-6.jpg');
+    background-image: url('../img/blurr.png');
     font-family: 'Raleway', sans-serif;
 }
 
@@ -64,4 +64,25 @@ footer > .container {
 .span-space {
     margin-right: 25px;
     display: inline-block;
+}
+
+video#bgvid {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url('../img/blurr.png') no-repeat;
+    background-size: cover;
+}
+
+@media only screen and (max-device-width: 480px) {
+    video#bgvid { display: none; }
 }
