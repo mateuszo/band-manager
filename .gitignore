@@ -99,3 +99,6 @@ db.sqlite3
 
 # OS X dstore
 .DS_Store
+
+# sqlite
+*.sqlite3
